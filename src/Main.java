@@ -1,3 +1,8 @@
+import BehaviouralPatterns.ObserverPattern.*;
+import BehaviouralPatterns.StratergyPattern.CreditCardStrategy;
+import BehaviouralPatterns.StratergyPattern.PaymentGateway;
+import BehaviouralPatterns.StratergyPattern.PaymentStratergy;
+import BehaviouralPatterns.StratergyPattern.PaypalStrategy;
 import CreationalPatterns.PrototypePattern.Address;
 import CreationalPatterns.PrototypePattern.Character;
 
@@ -42,5 +47,34 @@ class Main {
 //            System.out.println(exp.getMessage());
 //        }
 
+
+
+//        Behavioural Patterns
+
+//        1. Strategy Pattern
+
+//        PaymentStratergy creditCard = new CreditCardStrategy("credit-card");
+//        PaymentStratergy payPal = new PaypalStrategy("pay-pal");
+//
+//
+//        PaymentGateway paymentGateway = new PaymentGateway(creditCard);
+//        paymentGateway.makePayment();
+//
+//        paymentGateway.setPaymentStratergy(payPal);
+//        paymentGateway.makePayment();
+
+
+//        2. Observer Pattern
+        NotificationStrategy emailNotification = new EmailNotification();
+        NotificationStrategy smsNotification = new SMSNotification();
+
+        User user1 = new User("test1", emailNotification);
+        User user2 = new User("test2", smsNotification);
+
+        YoutubeChannel channel = new YoutubeChannel("ytmaska" );
+        channel.subscribe(user1);
+        channel.subscribe(user2);
+
+        channel.uploadVideo("test video");
     }
 }
